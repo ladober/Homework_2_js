@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Comic';
+    src: url(/COMIC.TTF);
+}
+
+.tic-tac-toe-game {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    width: 306px;
+    height: 306px;
+    background-color:aquamarine;
+    flex-wrap: wrap;
+}
+
+.game-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color:rgb(255, 0, 149);
+}
+
+.green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color:rgb(21, 224, 21);
+}
+
+.blue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color:rgb(26, 13, 202);
+}
+
+.btn{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-style {
+    border: none;
+    background-color: yellow;
+    font-weight: 700;
+    font-family: 'Comic';
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+.btn-style:hover {
+    box-shadow: 0px 3px 0px yellowgreen;
+}
+.btn-style:active {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px yellowgreen;
+}
+
+#js-winner{
+    padding: 30px;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: 'Comic';
+    color: red;
+}
