@@ -1,4 +1,4 @@
-var buttons = document.querySelectorAll("#js-btn");
+let buttons = document.querySelectorAll("#js-btn");
 
 let player_x = "X";
 let player_o = "O";
@@ -33,7 +33,6 @@ function whoWon() {
     ) {
       winner.innerText = "Player X Won";
       blockArea.style.pointerEvents = "none";
-      newGame();
     } else if (
       buttons[win[i][0]].classList.contains("blue") ==
         buttons[win[i][1]].classList.contains("blue") &&
@@ -43,7 +42,6 @@ function whoWon() {
     ) {
       winner.innerText = "Player O Won";
       blockArea.style.pointerEvents = "none";
-      newGame();
     }
   }
 }
@@ -59,18 +57,11 @@ function Tap(event) {
   turn++;
   event.target.removeEventListener("click", Tap);
 
-  if (whoWon()) {
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[i].removeEventListener("click", Tap);
-    }
-    if (turn % 2 == 0) {
-      winner.textContent = "Play X Won";
-    }
-  }
+  whoWon();
+
   if (turn == 9) {
     winner.innerText = "Draw";
     blockArea.style.pointerEvents = "none";
-    newGame();
   }
 }
 
