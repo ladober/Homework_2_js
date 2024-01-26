@@ -11,18 +11,23 @@ let btn = document.querySelector("#js-button");
 
 let blockArea = document.querySelector(".tic-tac-toe-game");
 
-function whoWon() {
-  let win = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 3, 6],
-  ];
+let win = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 3, 6],
+];
 
+function whoWon() {
+  xWon();
+  oWon();
+}
+
+function xWon() {
   for (let i = 0; i < win.length; i++) {
     if (
       buttons[win[i][0]].classList.contains("green") ==
@@ -33,7 +38,14 @@ function whoWon() {
     ) {
       winner.innerText = "Player X Won";
       blockArea.style.pointerEvents = "none";
-    } else if (
+      return 1;
+    }
+  }
+}
+
+function oWon() {
+  for (let i = 0; i < win.length; i++) {
+    if (
       buttons[win[i][0]].classList.contains("blue") ==
         buttons[win[i][1]].classList.contains("blue") &&
       buttons[win[i][1]].classList.contains("blue") ==
@@ -42,6 +54,7 @@ function whoWon() {
     ) {
       winner.innerText = "Player O Won";
       blockArea.style.pointerEvents = "none";
+      return 1;
     }
   }
 }
@@ -59,9 +72,9 @@ function Tap(event) {
 
   whoWon();
 
-  if (turn == 9) {
-    winner.innerText = "Draw";
+  if (!xWon() && !oWon() && turn >= 9) {
     blockArea.style.pointerEvents = "none";
+    winner.innerText = "Draw";
   }
 }
 
